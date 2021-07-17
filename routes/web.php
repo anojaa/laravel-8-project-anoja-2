@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PostController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -42,3 +43,4 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('home', [HomeController::class, 'index'])->name('home');
     Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 });
+Route::resource('posts', PostController::class);
