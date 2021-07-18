@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,10 +34,10 @@ Route::get('/beranda', function () {
 
 
 // Route::get('/', [AuthController::class, 'showFormLogin'])->name('login');
-Route::get('login', [AuthController::class, 'showFormLogin'])->name('login');
-Route::post('login', [AuthController::class, 'login']);
+Route::get('login', [AuthController::class, 'showFormLogin'])->name('auth');
+Route::post('login', [AuthController::class, 'login'])->name('login');
 Route::get('register', [AuthController::class, 'showFormRegister'])->name('register');
-Route::post('register', [AuthController::class, 'register']);
+Route::post('register', [AuthController::class, 'register'])->name('register_simpan');
 
 Route::group(['middleware' => 'auth'], function () {
 
